@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from filer.fields import FilerImageField
+from filer.fields.image import FilerImageField
 
 class Gallery(models.Model):
     title = models.CharField(max_length=255)
