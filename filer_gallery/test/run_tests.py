@@ -9,7 +9,9 @@ INSTALLED_APPS=[
     'django.contrib.sessions',
     'django.contrib.admin',
     'django.contrib.sites',        
-    'filer_gallery'
+    'filer_gallery',
+    'filer',
+    'categories'
 ]
 
 MIDDLEWARE_CLASSES = [

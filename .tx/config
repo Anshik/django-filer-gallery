@@ -1,0 +1,12 @@
+[django-filer-gallery.js]
+file_filter = filer_gallery/locale/<lang>/LC_MESSAGES/djangojs.po
+source_file = filer_gallery/locale/en/LC_MESSAGES/djangojs.po
+source_lang = en
+
+[main]
+host = http://www.transifex.net
+
+[django-filer-gallery.core]
+file_filter = filer_gallery/locale/<lang>/LC_MESSAGES/django.po
+source_file = filer_gallery/locale/en/LC_MESSAGES/django.po
+source_lang = en
