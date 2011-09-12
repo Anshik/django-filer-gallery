@@ -1,0 +1,11 @@
+[run]
+branch = True
+source =
+    filer_gallery
+omit =
+    filer_gallery/migrations/*
+    filer_gallery/tests/*
+    filer_gallery/test/*
+    filer_gallery/test/testapp/*
+[report]
+precision = 2

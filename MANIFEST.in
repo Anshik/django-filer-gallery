@@ -1,0 +1,3 @@
+recursive-include filer_gallery/templates *
+recursive-include filer_gallery/locale *
+recursive-include filer_gallery/static *

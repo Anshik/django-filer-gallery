@@ -1,0 +1,5 @@
+django-categories
+django-sekizai
+coverage
+unittest-xml-reporting==1.2
+Sphinx
