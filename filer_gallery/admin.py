@@ -7,7 +7,7 @@ from filer_gallery.widgets import UploadWidget
 class GalleryAdmin(admin.ModelAdmin):
     
     def get_form(self, request, obj=None, **kwargs):
-        form = super(GalleryAdmin, self).get_form(request, obj=None, **kwargs):)
+        form = super(GalleryAdmin, self).get_form(request, obj=None, **kwargs)
         if obj:
             form.base_fields['upload'] = Field(widget=UploadWidget(obj=obj))
         return form
