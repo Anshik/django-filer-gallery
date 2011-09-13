@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.forms.fields import Field
 from django import forms
-
+from django.core.urlresolvers import reverse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
@@ -20,6 +20,14 @@ from filer_gallery.widgets import UploadWidget
 from filer_gallery.utils import handle_upload, UploadException
 
 class GalleryAdmin(admin.ModelAdmin):
+    
+    list_display = ('title', 'show_images')
+    list_editable = ('title',)
+    list_filter = ('category',)
+    
+    def show_images(self, obj):
+        return u'<a href="%s?gallery__exact=%i">Show images</a>' % (reverse('admin:filer_gallery_galleryimage_changelist'), obj.pk)
+    show_images.allow_tags = True
     
     def get_form(self, request, obj=None, **kwargs):
         form = super(GalleryAdmin, self).get_form(request, obj=None, **kwargs)
@@ -71,5 +79,10 @@ class GalleryAdmin(admin.ModelAdmin):
         except UploadException, e:
             return HttpResponse(simplejson.dumps({'error': unicode(e)}), mimetype='application/json')
             
+class GalleryImageAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    list_editable = ('title',)
+    list_filter = ('gallery',)
+    
 admin.site.register(Gallery, GalleryAdmin)
-admin.site.register(GalleryImage)
+admin.site.register(GalleryImage, GalleryImageAdmin)
