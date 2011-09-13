@@ -1,6 +1,7 @@
 from django.conf import settings
 from django import forms
 from django.utils.safestring import mark_safe
+from django.core.urlresolvers import reverse
 
 class UploadWidget(forms.Widget):
 
@@ -22,7 +23,7 @@ class UploadWidget(forms.Widget):
 django.jQuery(document).ready(function () {
     var uploader = new qq.FileUploader({
         element: document.getElementById('%s_id'),
-        action: '/test/',
+        action: '%s',
         params: {
             gallery_id: %i
         }
@@ -31,6 +32,6 @@ django.jQuery(document).ready(function () {
 </script>
 <div id="%s_id">
 </div>
-''' % (name, self.obj.pk, name)
+''' % (name, reverse('admin:filer_gallery_gallery_upload'), self.obj.pk, name)
         return mark_safe(output)
 
