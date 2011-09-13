@@ -20,10 +20,12 @@ from filer_gallery.widgets import UploadWidget
 from filer_gallery.utils import handle_upload, UploadException
 
 class GalleryAdmin(admin.ModelAdmin):
-    
-    list_display = ('title', 'show_images')
+        
+    list_display = ('__unicode__', 'title', 'show_images')
     list_editable = ('title',)
     list_filter = ('category',)
+    
+    prepopulated_fields = {'slug': ('title',) }
     
     def show_images(self, obj):
         return u'<a href="%s?gallery__exact=%i">Show images</a>' % (reverse('admin:filer_gallery_galleryimage_changelist'), obj.pk)
@@ -80,7 +82,7 @@ class GalleryAdmin(admin.ModelAdmin):
             return HttpResponse(simplejson.dumps({'error': unicode(e)}), mimetype='application/json')
             
 class GalleryImageAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    list_display = ('__unicode__','title',)
     list_editable = ('title',)
     list_filter = ('gallery',)
     

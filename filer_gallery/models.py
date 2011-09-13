@@ -6,9 +6,15 @@ class Gallery(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
     category = models.ForeignKey('categories.Category')
+
+    def __unicode__(self):
+        return self.title
     
 class GalleryImage(models.Model):
     gallery = models.ForeignKey(Gallery)
     title = models.CharField(max_length=255)
     category = models.ForeignKey('categories.Category', null=True, blank=True)
     image = FilerImageField()
+
+    def __unicode__(self):
+        return self.title
