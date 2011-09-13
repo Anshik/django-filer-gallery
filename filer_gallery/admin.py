@@ -43,7 +43,7 @@ class GalleryAdmin(admin.ModelAdmin):
         """
         receives an upload from the uploader. Receives only one file at the time.
         """
-        gallery = Gallery.objects.get(request.REQUEST.get("gallery_id"))
+        gallery = Gallery.objects.get(pk=request.REQUEST.get("gallery_id"))
         try:
             upload, filename, is_raw = handle_upload(request)
 
