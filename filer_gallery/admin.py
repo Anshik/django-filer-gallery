@@ -83,8 +83,8 @@ class GalleryAdmin(admin.ModelAdmin):
             return HttpResponse(simplejson.dumps({'error': unicode(e)}), mimetype='application/json')
             
 class GalleryImageAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__','title',)
-    list_editable = ('title',)
+    list_display = ('__unicode__', 'title', 'image')
+    list_editable = ('title', 'image')
     list_filter = ('gallery',)
     
 admin.site.register(Gallery, GalleryAdmin)
