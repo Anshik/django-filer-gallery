@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 class UploadException(Exception):
     pass
