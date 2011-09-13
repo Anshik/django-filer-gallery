@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from django.forms.fields import Field
+from django import forms
+
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
