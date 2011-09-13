@@ -70,6 +70,7 @@ class GalleryAdmin(admin.ModelAdmin):
                     'thumbnail': file_obj.icons['32'],
                     'alt_text': '',
                     'label': unicode(file_obj),
+                    'success': True
                 }
                 return HttpResponse(simplejson.dumps(json_response), mimetype='application/json')
             else:
