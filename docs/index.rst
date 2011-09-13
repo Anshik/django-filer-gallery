@@ -17,6 +17,7 @@ Getting Started
     :maxdepth: 2
     :numbered:
 
+    getting_started
 
 **************************************
 Contributing to django-filer-gallery
@@ -27,8 +28,6 @@ Contributing to django-filer-gallery
     :numbered:
 
     contribution
-
-
 
 Indices and tables
 ==================
