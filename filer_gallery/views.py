@@ -19,11 +19,12 @@ class ConfigMixin(object):
         
 class CategoryAllRelatedList(ListView, ConfigMixin):
     
+    path_field = 'category_path'
     category_field = 'category'
     
     def get_queryset(self):
         queryset = super(CategoryAllRelatedList, self).get_queryset()
-        category = get_category_for_path(self.kwargs['category_path'])
+        category = get_category_for_path(self.kwargs[self.path_field])
         kwargs = {
             '%s__tree_id' % self.category_field: category.tree_id,
             '%s__lft__gte' % self.category_field: category.lft,
