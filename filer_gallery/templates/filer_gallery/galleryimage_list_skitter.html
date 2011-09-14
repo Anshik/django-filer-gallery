@@ -39,6 +39,6 @@ var skgallery
 </div>
 {% for image in object_list %}
 
-    <a href="#" onclick="skgallery.settings.image_i={{ forloop.counter0 }}; skgallery.nextImage();return false"><img src="{% thumbnail image.image "100x100" %}" /></a>
+    <a href="#" onclick="skgallery.settings.image_i={{ forloop.counter0 }}-1; skgallery.nextImage();return false"><img src="{% thumbnail image.image "50x50" %}" /></a>
 
 {% endfor %}
