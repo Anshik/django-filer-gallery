@@ -20,7 +20,7 @@ SKITTER_CONFIG = getattr(settings, 'SKITTER_CONFIG', {
     'interval': 2500,
     'numbers': True,
     'label': True,
-    'animation': 'random'
+    'animation': 'random',
     'thumbs': False,
     'hidetools': False,
     'dots': False,
