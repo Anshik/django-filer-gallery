@@ -1,7 +1,5 @@
 {% load thumbnail sekizai_tags %}
 {% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/skitter.styles.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
-{% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/highlight.black.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
-{% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/sexy-bookmarks-style.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
 {% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
 
 {% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery-1.6.3.min.js"></script>{% endaddtoblock %}
@@ -9,8 +7,6 @@
 {% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery.animate-colors-min.js"></script>{% endaddtoblock %}
 
 {% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery.skitter.min.js"></script>{% endaddtoblock %}
-{% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/highlight.js"></script>{% endaddtoblock %}
-{% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/sexy-bookmarks-public.js"></script>{% endaddtoblock %}
 
 {% for gallery in object_list %}
 {% addtoblock "js" %}
@@ -28,6 +24,7 @@
 {% endaddtoblock %}
 
 <div id="filer-gallery-{{ gallery.pk }}" class="box_skitter box_skitter_medium">
+    <ul>
     {% for image in gallery.galleryimage_set.all %}
         <li>
             <a href="#"><img src="{% thumbnail image.image FILER_GALLERY_DISPLAY_SIZE %}" /></a>
