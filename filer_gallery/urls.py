@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls.defaults import *
 from filer_gallery.views import CategoryAllRelatedList, ImageViaGalleryCategoryList
-from django.views.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView
+from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView
 
 image_info_dict = {
     'queryset': GalleryImage.objects.all(),
