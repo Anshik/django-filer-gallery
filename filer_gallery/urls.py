@@ -1,48 +1,42 @@
 # -*- coding: utf-8 -*-
-from filer_gallery import settings as filer_gallery_settings
-from django.conf.urls.defaults import *
-from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView
-from django.utils import simplejson
 
+from django.conf.urls.defaults import *
+
+from filer_gallery.views import GalleryArchiveIndexView, GalleryYearArchiveView, GalleryMonthArchiveView, GalleryDayArchiveView
 from filer_gallery.models import Gallery, GalleryImage
 from filer_gallery.views import CategoryAllRelatedList, ImageViaGalleryCategoryList
 
-extra_kwargs = {
-    'ORBIT_CONFIG': simplejson.dumps(filer_gallery_settings.ORBIT_CONFIG),
-    'FILER_GALLERY_DISPLAY_SIZE': filer_gallery_settings.FILER_GALLERY_DISPLAY_SIZE
+image_info_dict = {
+    'queryset': GalleryImage.objects.all(),
+    'date_field': 'pub_date',
 }
 
-image_info_dict = dict({
-    'queryset': GalleryImage.objects.all(),
-    'date_field': 'pub_date',
-}, **extra_kwargs)
-
-image_info_month_dict = dict({
+image_info_month_dict = {
     'queryset': GalleryImage.objects.all(),
     'date_field': 'pub_date',
     'month_format': '%m',
-}, **extra_kwargs)
+}
 
-image_info_year_dict = dict({
+image_info_year_dict = {
     'queryset': GalleryImage.objects.all(),
     'date_field': 'pub_date',
-}, **extra_kwargs)
+}
 
-gallery_info_dict = dict({
+gallery_info_dict = {
     'queryset': Gallery.objects.all(),
     'date_field': 'pub_date',
-}, **extra_kwargs)
+}
 
-gallery_info_month_dict = dict({
+gallery_info_month_dict = {
     'queryset': Gallery.objects.all(),
     'date_field': 'pub_date',
     'month_format': '%m',
-}, **extra_kwargs)
+}
 
-gallery_info_year_dict = dict({
+gallery_info_year_dict = {
     'queryset': Gallery.objects.all(),
     'date_field': 'pub_date',
-}, **extra_kwargs)
+}
 
 urlpatterns = patterns('',
 
@@ -63,11 +57,11 @@ urlpatterns = patterns('',
         name= 'filer_gallery_galleryimage_archive_day'),
         
     url(r'^images/(?P<category_path>.+)/$',
-        ImageViaGalleryCategoryList.as_view(model=GalleryImage, **extra_kwargs),
+        ImageViaGalleryCategoryList.as_view(model=GalleryImage),
         name='filer_gallery_galleryimage_gallery_category'),
         
     url(r'^images/(?P<category_path>.+)/$',
-        CategoryAllRelatedList.as_view(model=GalleryImage, **extra_kwargs),
+        CategoryAllRelatedList.as_view(model=GalleryImage),
         name='filer_gallery_galleryimage_category'),
         
     url(r'^galleries/$',

@@ -1,12 +1,23 @@
 # -*- coding: utf-8 -*-
+from django.utils import simplejson
+from filer_gallery import settings as filer_gallery_settings
+
 try:
     from django.views.generic import ListView
+    from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView
 except ImportError:
-    from cbv import ListView
+    from cbv import ListView, ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView
     
 from categories.views import get_category_for_path
 
-class CategoryAllRelatedList(ListView):
+class ConfigMixin(object):
+    def get_context_data(self, **kwargs):
+        context = super(ConfigMixin, self).get_context_data(**kwargs)
+        context['ORBIT_CONFIG'] = simplejson.dumps(filer_gallery_settings.ORBIT_CONFIG)
+        context['FILER_GALLERY_DISPLAY_SIZE'] = simplejson.dumps(filer_gallery_settings.FILER_GALLERY_DISPLAY_SIZE)}
+        return context
+        
+class CategoryAllRelatedList(ListView, ConfigMixin):
     
     category_field = 'category'
     
@@ -46,3 +57,17 @@ class CategoryAllRelatedList(ListView):
 
 class ImageViaGalleryCategoryList(CategoryAllRelatedList):
     category_field = 'gallery__category'
+
+
+        
+class GalleryArchiveIndexView(ArchiveIndexView, ConfigMixin):
+    pass
+    
+class GalleryYearArchiveView(YearArchiveView, ConfigMixin):
+    pass
+    
+class GalleryMonthArchiveView(MonthArchiveView, ConfigMixin):
+    pass
+    
+class GalleryDayArchiveView(DayArchiveView, ConfigMixin):
+    pass
