@@ -428,7 +428,7 @@
 				this.box_skitter.find('.loading, .image_loading, .image_number, .next_button, .prev_button').remove();
 			}
 			
-			if ($.isFunction(this.settings.onLoad)) this.settings.onLoad();
+			if ($.isFunction(this.settings.onLoad)) this.settings.onLoad(this);
 		},
 		
 		/**

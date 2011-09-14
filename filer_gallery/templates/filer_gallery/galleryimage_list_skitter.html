@@ -10,13 +10,15 @@
 {% addtoblock "js" %}
 <script type="text/javascript">
 
-var skgallery = null
+var skgallery
 //<![CDATA[
 (function ($) {
     var config = {{ SKITTER_CONFIG|safe }}
-
+    config.onLoad = function(skitter) {
+        skgallery = skitter
+    }
     $(document).ready(function () {
-        skgallery = $('#filer-gallery-gallery').skitter(config);
+        $('#filer-gallery-gallery').skitter(config);
     });
 })(jQuery)
 //]]>
