@@ -273,7 +273,6 @@
 			}
 			else 
 			{
-					self.box_skitter.find('.info_slide').hide();
 
 			}
 			
