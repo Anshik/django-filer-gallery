@@ -4,7 +4,7 @@
         {% if not forloop.first %}
             </p>
         {% endif %}
-    <p><a href="{% url filer_gallery_galleryimage_archive_year year=d|date:"Y" %}">{{ d|date:"Y" }}</a></p>
+    <h2><a href="{% url filer_gallery_galleryimage_archive_year year=d|date:"Y" %}">{{ d|date:"Y" }}</a></h2>
     <p>
     {% endifchanged %}
     <a href="{% url filer_gallery_galleryimage_archive_month year=d|date:"Y",month=d|date:"m" %}">{{ d|date:"F" }}</a>
