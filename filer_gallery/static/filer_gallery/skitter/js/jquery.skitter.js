@@ -63,7 +63,9 @@
 										+ '<a href=""><img class="image_main" /></a>'
 										+ '<div class="label_skitter"></div>'
 									+ '</div>'
-								+ '</div>'
+								+ '</div>',
+								
+		max_number_height: 20
 	};
 	
 	$.skitter = function(obj, options, number) {
@@ -101,6 +103,7 @@
 			
 			this.settings.width_skitter 	= parseFloat(this.box_skitter.css('width'));
 			this.settings.height_skitter 	= parseFloat(this.box_skitter.css('height'));
+			
 			
 			if (!this.settings.width_skitter || !this.settings.height_skitter) {
 				console.warn('Width or height size is null! - Skitter Slideshow');
@@ -273,7 +276,9 @@
 			}
 			else 
 			{
-
+				if (self.box_skitter.find('.info_slide').height() > self.settings.max_number_height) {
+					self.box_skitter.find('.info_slide').hide();
+				}
 			}
 			
 			this.box_skitter.find('ul').hide();
