@@ -9,12 +9,14 @@
 
 {% addtoblock "js" %}
 <script type="text/javascript">
+
+var skgallery = null
 //<![CDATA[
 (function ($) {
     var config = {{ SKITTER_CONFIG|safe }}
 
     $(document).ready(function () {
-        $('#filer-gallery-gallery').skitter(config);
+        skgallery = $('#filer-gallery-gallery').skitter(config);
     });
 })(jQuery)
 //]]>
@@ -33,3 +35,8 @@
     {% endfor %}
     </ul> 
 </div>
+{% for image in gallery.galleryimage_set.all %}
+
+    <a href="#" onclick="skgallery.settings.image_i={{ forloop.counter0 }}; skgallery.nextImage();return false"><img src="{% thumbnail image.image "100x100" %}" /></a>
+
+{% endfor %}

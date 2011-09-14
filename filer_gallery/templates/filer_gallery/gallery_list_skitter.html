@@ -12,11 +12,12 @@
 {% addtoblock "js" %}
 <script type="text/javascript">
 //<![CDATA[
+var sk{{ gallery.pk }} = null
 (function ($) {
     var config = {{ SKITTER_CONFIG|safe }}
 
     $(document).ready(function () {
-        $('#filer-gallery-{{ gallery.pk }}').skitter(config);
+        sk{{ gallery.pk }} = $('#filer-gallery-{{ gallery.pk }}').skitter(config);
     });
 })(jQuery)
 //]]>
@@ -35,4 +36,11 @@
     {% endfor %}
     </ul> 
 </div>
+{% for image in gallery.galleryimage_set.all %}
+
+    <a href="#" onclick="sk{{ gallery.pk }}.settings.image_i={{ forloop.counter0 }}; sk.nextImage();return false"><img src="{% thumbnail image.image "100x100" %}" /></a>
+
 {% endfor %}
+
+{% endfor %}
+
