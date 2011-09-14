@@ -27,7 +27,7 @@ class CategoryAllRelatedList(ListView, ConfigMixin):
         kwargs = {
             '%s__tree_id' % self.category_field: category.tree_id,
             '%s__lft__gte' % self.category_field: category.lft,
-            '%s__rgt__lte' % self.category_field: category.rgt
+            '%s__rght__lte' % self.category_field: category.rght
         }
         return queryset.filter(**kwargs).order_by('%s__lft' % self.category_field)
 
