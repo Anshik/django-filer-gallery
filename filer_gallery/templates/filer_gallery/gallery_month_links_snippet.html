@@ -1,0 +1,12 @@
+{% for d in dates reversed %}
+    
+    {% ifchanged d|date:"Y" %}
+        {% if not forloop.first %}
+            </p>
+        {% endif %}
+    <h2><a href="{% url filer_gallery_gallery_archive_year year=d|date:"Y" %}">{{ d|date:"Y" }}</a></h2>
+    <p>
+    {% endifchanged %}
+    <a href="{% url filer_gallery_gallery_archive_month year=d|date:"Y",month=d|date:"m" %}">{{ d|date:"F" }}</a> 
+{% endfor %}
+</p>
