@@ -1,41 +1,49 @@
 # -*- coding: utf-8 -*-
+from filer_gallery import settings as filer_gallery_settings
 from django.conf.urls.defaults import *
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView
 
 from filer_gallery.models import Gallery, GalleryImage
 from filer_gallery.views import CategoryAllRelatedList, ImageViaGalleryCategoryList
 
-image_info_dict = {
-    'queryset': GalleryImage.objects.all(),
-    'date_field': 'pub_date'
+import simplejson
+
+extra_kwargs = {
+    'ORBIT_CONFIG': simplejson.dumps(filer_gallery_settings.ORBIT_CONFIG),
+    'FILER_GALLERY_DISPLAY_SIZE': filer_gallery_settings.FILER_GALLERY_DISPLAY_SIZE
 }
 
-image_info_month_dict = {
+image_info_dict = dict({
     'queryset': GalleryImage.objects.all(),
     'date_field': 'pub_date',
-    'month_format': '%m'
-}
+}, **extra_kwargs)
 
-image_info_year_dict = {
+image_info_month_dict = dict({
     'queryset': GalleryImage.objects.all(),
-    'date_field': 'pub_date'
-}
-gallery_info_dict = {
-    'queryset': Gallery.objects.all(),
-    'date_field': 'pub_date'
-}
+    'date_field': 'pub_date',
+    'month_format': '%m',
+}, **extra_kwargs)
 
-gallery_info_month_dict = {
+image_info_year_dict = dict({
+    'queryset': GalleryImage.objects.all(),
+    'date_field': 'pub_date',
+}, **extra_kwargs)
+
+gallery_info_dict = dict({
     'queryset': Gallery.objects.all(),
     'date_field': 'pub_date',
-    'month_format': '%m'
-}
+}, **extra_kwargs)
 
-gallery_info_year_dict = {
+gallery_info_month_dict = dict({
     'queryset': Gallery.objects.all(),
-    'date_field': 'pub_date'
-}
+    'date_field': 'pub_date',
+    'month_format': '%m',
+}, **extra_kwargs)
 
+gallery_info_year_dict = dict({
+    'queryset': Gallery.objects.all(),
+    'date_field': 'pub_date',
+}, **extra_kwargs)
 
 urlpatterns = patterns('',
 
@@ -61,7 +69,7 @@ urlpatterns = patterns('',
         
     url(r'^images/(?P<category_path>.+)/$',
         CategoryAllRelatedList.as_view(model=GalleryImage),
-        name='filer_gallery_galleryimage_category'),
+        name='filer_gallery_galleryimage_category', kwargs=),
         
     url(r'^galleries/$',
         ArchiveIndexView.as_view(**gallery_info_dict),
