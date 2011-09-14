@@ -273,9 +273,8 @@
 			}
 			else 
 			{
-				if (self.box_skitter.find('.info_slide').height() > 20) {
 					self.box_skitter.find('.info_slide').hide();
-				}
+
 			}
 			
 			this.box_skitter.find('ul').hide();
