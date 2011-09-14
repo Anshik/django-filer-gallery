@@ -49,7 +49,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'django-filer-gallery'
-copyright = u'2011, \xc3yvind Saltvik'
+copyright = u'2011, Øyvind Saltvik'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

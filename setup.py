@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from setuptools import setup, find_packages
 import os
 import filer_gallery
@@ -17,7 +19,7 @@ setup(
     version=filer_gallery.get_version(),
     description='A gallery using django-filer',
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
-    author='\xc3yvind Saltvik',
+    author='Oyvind Saltvik',
     author_email='oyvind.saltvik@gmail.com',
     url='http://github.com/fivethreeo/django-filer-gallery.git',
     packages=find_packages(),
