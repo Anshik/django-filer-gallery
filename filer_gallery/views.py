@@ -14,7 +14,7 @@ class CategoryAllRelatedList(ListView):
         queryset = super(CategoryAllRelatedList, self).get_queryset()
         category = get_category_for_path(self.kwargs['category_path'])
         kwargs = {
-            '%s__tree_id' % self.category_field:
+            '%s__tree_id' % self.category_field: category.tree_id,
             '%s__lft__gte' % self.category_field: category.lft,
             '%s__rgt__lte' % self.category_field: category.rgt
         }
