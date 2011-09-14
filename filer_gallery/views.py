@@ -66,6 +66,9 @@ class GalleryArchiveIndexView(ArchiveIndexView, ConfigMixin):
         return context
     
 class GalleryYearArchiveView(YearArchiveView, ConfigMixin):
+    
+    make_object_list = True
+    
     def get_context_data(self, **kwargs):
         context = super(GalleryYearArchiveView, self).get_context_data(**kwargs)
         context['ORBIT_CONFIG'] = simplejson.dumps(filer_gallery_settings.ORBIT_CONFIG)
