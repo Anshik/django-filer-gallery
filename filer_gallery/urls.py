@@ -37,7 +37,7 @@ gallery_info_year_dict = {
 }
 
 
-urlpatterns += patterns('',
+urlpatterns = patterns('',
 
     url(r'^$',
         ArchiveIndexView.as_view(**image_info_dict),
