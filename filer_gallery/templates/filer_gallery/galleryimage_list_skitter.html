@@ -11,7 +11,7 @@
 <script type="text/javascript">
 //<![CDATA[
 (function ($) {
-    var config = {animation: 'random'}
+    var config = {{ SKITTER_CONFIG|safe }}
 
     $(document).ready(function () {
         $('#filer-gallery-gallery').skitter(config);
