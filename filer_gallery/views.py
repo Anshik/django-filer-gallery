@@ -14,7 +14,7 @@ class ConfigMixin(object):
     def get_context_data(self, **kwargs):
         context = super(ConfigMixin, self).get_context_data(**kwargs)
         context['ORBIT_CONFIG'] = simplejson.dumps(filer_gallery_settings.ORBIT_CONFIG)
-        context['FILER_GALLERY_DISPLAY_SIZE'] = simplejson.dumps(filer_gallery_settings.FILER_GALLERY_DISPLAY_SIZE)}
+        context['FILER_GALLERY_DISPLAY_SIZE'] = filer_gallery_settings.FILER_GALLERY_DISPLAY_SIZE
         return context
         
 class CategoryAllRelatedList(ListView, ConfigMixin):
@@ -58,8 +58,6 @@ class CategoryAllRelatedList(ListView, ConfigMixin):
 class ImageViaGalleryCategoryList(CategoryAllRelatedList):
     category_field = 'gallery__category'
 
-
-        
 class GalleryArchiveIndexView(ArchiveIndexView, ConfigMixin):
     pass
     
