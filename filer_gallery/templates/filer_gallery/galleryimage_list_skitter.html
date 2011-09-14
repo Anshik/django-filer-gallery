@@ -1,0 +1,40 @@
+{% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/styles.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
+{% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/skitter.styles.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
+{% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/highlight.black.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
+{% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/sexy-bookmarks-style.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
+
+{% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery-1.6.3.min.js"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery.easing.1.3.js"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery.animate-colors-min.js"></script>{% endaddtoblock %}
+
+{% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery.skitter.min.js"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/highlight.js"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/sexy-bookmarks-public.js"></script>{% endaddtoblock %}
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+//<![CDATA[
+(function ($) {
+    var config = {}
+
+    $(document).ready(function () {
+        $('#filer-gallery-gallery').skitter(config);
+    });
+})(jQuery)
+//]]>
+</script>
+{% endaddtoblock %}
+
+<div id="filer-gallery-{{ gallery.pk }} box_skitter_medium">
+    <ul>
+    {% for image in object_list %}
+        <li>
+            <a href="#"><img src="{% thumbnail image.image FILER_GALLERY_DISPLAY_SIZE %}" /></a>
+            <div class="label_text">
+                <p>{{ image.title }}</p>
+            </div>
+        </li>
+    {% endfor %}
+    </ul> 
+</div>
+{% endfor %}
