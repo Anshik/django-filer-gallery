@@ -2,6 +2,7 @@
 {% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/skitter.styles.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
 {% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/highlight.black.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
 {% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/sexy-bookmarks-style.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
+{% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
 
 {% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery-1.6.3.min.js"></script>{% endaddtoblock %}
 {% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery.easing.1.3.js"></script>{% endaddtoblock %}
@@ -26,7 +27,7 @@
 </script>
 {% endaddtoblock %}
 
-<div id="filer-gallery-{{ gallery.pk }} box_skitter_medium">
+<div id="filer-gallery-{{ gallery.pk }} box_skitter box_skitter_medium">
     <ul>
     {% for image in gallery.galleryimage_set.all %}
         <li>
