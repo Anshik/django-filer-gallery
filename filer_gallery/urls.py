@@ -64,12 +64,12 @@ urlpatterns = patterns('',
         name= 'filer_gallery_galleryimage_archive_day'),
         
     url(r'^images/(?P<category_path>.+)/$',
-        ImageViaGalleryCategoryList.as_view(model=GalleryImage),
+        ImageViaGalleryCategoryList.as_view(model=GalleryImage, **extra_kwargs),
         name='filer_gallery_galleryimage_gallery_category'),
         
     url(r'^images/(?P<category_path>.+)/$',
-        CategoryAllRelatedList.as_view(model=GalleryImage),
-        name='filer_gallery_galleryimage_category', kwargs=),
+        CategoryAllRelatedList.as_view(model=GalleryImage, **extra_kwargs),
+        name='filer_gallery_galleryimage_category'),
         
     url(r'^galleries/$',
         ArchiveIndexView.as_view(**gallery_info_dict),
