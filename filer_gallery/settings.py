@@ -28,7 +28,7 @@ SKITTER_CONFIG = getattr(settings, 'SKITTER_CONFIG', {
     'velocity': 1,
     'animateNumberOut': {'backgroundColor':'#000', 'color':'#ccc'},
     'animateNumberOver': {'backgroundColor':'#000', 'color':'#ccc'},
-    'animateNumberActive': {'backgroundColor':'#000', 'color':'#ccc'}
+    'animateNumberActive': {'backgroundColor':'#000', 'color':'#ccc'},
     'width_label': None,
     'show_randomly': False
 })
