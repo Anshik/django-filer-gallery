@@ -2,11 +2,10 @@
 from filer_gallery import settings as filer_gallery_settings
 from django.conf.urls.defaults import *
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView
+from django.utils import simplejson
 
 from filer_gallery.models import Gallery, GalleryImage
 from filer_gallery.views import CategoryAllRelatedList, ImageViaGalleryCategoryList
-
-import simplejson
 
 extra_kwargs = {
     'ORBIT_CONFIG': simplejson.dumps(filer_gallery_settings.ORBIT_CONFIG),
