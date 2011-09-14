@@ -2,7 +2,7 @@
 
 {% block filer_gallery_sidebar %}
 <p>
-{% for d in dates reversed %}
+{% for d in date_list reversed %}
     <a href="{% url filer_gallery_gallery_archive_month year=d|date:"Y",month=d|date:"m" %}">{{ d|date:"F" }}</a>
 {% endfor %}
 </p>
