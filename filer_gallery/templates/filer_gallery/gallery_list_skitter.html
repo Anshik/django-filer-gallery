@@ -40,7 +40,7 @@ var sk{{ gallery.pk }}
 </div>
 {% for image in gallery.galleryimage_set.all %}
 
-    <a href="#" onclick="sk{{ gallery.pk }}.settings.image_i={{ forloop.counter0 }}; sk{{ gallery.pk }.nextImage();return false"><img src="{% thumbnail image.image "100x100" %}" /></a>
+    <a href="#" onclick="sk{{ gallery.pk }}.settings.image_i={{ forloop.counter0 }}; sk{{ gallery.pk }}.nextImage();return false"><img src="{% thumbnail image.image "100x100" %}" /></a>
 
 {% endfor %}
 
