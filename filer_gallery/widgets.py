@@ -7,9 +7,9 @@ class UploadWidget(forms.Widget):
 
     class Media:
         css = {
-            'all': ['%sfiler_gallery/fileuploader.css' % settings.STATIC_URL]
+            'all': ['%sfiler_gallery/fileuploader/fileuploader.css' % settings.STATIC_URL]
         }
-        js = ['%sfiler_gallery/fileuploader.js' % settings.STATIC_URL]
+        js = ['%sfiler_gallery/fileuploader/fileuploader.js' % settings.STATIC_URL]
     
     def __init__(self, *args, **kwargs):
         self.obj = kwargs.pop('obj')        
