@@ -1,2 +1,9 @@
 {% extends "filer_gallery/galleryimage_dates_base.html" %}
 
+{% block filer_gallery_sidebar %}
+<p>
+{% for d in dates reversed %}
+    <a href="{% url filer_gallery_galleryimage_archive_day year=d|date:"Y",month=d|date:"m",day=d|date:"d" %}">{{ d|date:"dS" }}</a>
+{% endfor %}
+</p>
+{% endblock filer_gallery_sidebar %}

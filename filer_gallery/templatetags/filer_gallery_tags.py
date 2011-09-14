@@ -3,7 +3,7 @@ from filer_gallery.models import Gallery, GalleryImage
 
 register = template.Library()
 
-@register.inclusion_tag('filer_gallery/gallery_month_links_snippet.html', takes_context=True)
+@register.inclusion_tag('filer_gallery/gallery_months_links_snippet.html', takes_context=True)
 def render_gallery_month_links(context):
     return {
         'dates': Gallery.objects.dates('pub_date', 'month'),
