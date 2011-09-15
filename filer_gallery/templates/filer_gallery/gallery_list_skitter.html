@@ -17,6 +17,10 @@
     var config = {{ SKITTER_CONFIG|safe }}
     $(document).ready(function () {
        $('#filer-gallery-{{ gallery.pk }}').skitter(config);
+       $('#filer-gallery-{{ gallery.pk }}').bind("imageSwitched", function(event, skitter, imagenum ) {
+         console.log($(this).attr('id') + 'i:' +  imagenum) 
+       });
+
     });
 })(skitter_jQuery)
 //]]>
