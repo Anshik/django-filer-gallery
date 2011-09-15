@@ -6,18 +6,17 @@
 {% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery.easing.1.3.js"></script>{% endaddtoblock %}
 {% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery.animate-colors-min.js"></script>{% endaddtoblock %}
 {% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery.skitter.js"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter_init.js"></script>{% endaddtoblock %}
 
 {% addtoblock "js" %}
 <script type="text/javascript">
 //<![CDATA[
-var skitter = skitter || {}
-skitter.jQuery = skitter.jQuery || jQuery
 (function ($) {
     var config = {{ SKITTER_CONFIG|safe }}
     $(document).ready(function () {
         $('#filer-gallery-gallery').skitter(config);
     });
-})(skitter.jQuery)
+})(skitter_jQuery)
 //]]>
 </script>
 {% endaddtoblock %}
@@ -36,6 +35,6 @@ skitter.jQuery = skitter.jQuery || jQuery
 </div>
 {% for image in object_list %}
 
-    <a href="#" onclick="skitter.jQuery('#filer-gallery-gallery').skitter("setimage", {{ forloop.counter0 }});return false"><img src="{% thumbnail image.image "50x50" %}" /></a>
+    <a href="#" onclick="skitter_jQuery('#filer-gallery-gallery').skitter("setimage", {{ forloop.counter0 }});return false"><img src="{% thumbnail image.image "50x50" %}" /></a>
 
 {% endfor %}

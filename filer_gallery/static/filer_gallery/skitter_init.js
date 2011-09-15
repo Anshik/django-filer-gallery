@@ -1,0 +1,1 @@
+var skitter_jQuery = jQuery
