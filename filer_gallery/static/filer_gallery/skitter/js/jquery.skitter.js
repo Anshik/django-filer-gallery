@@ -437,16 +437,16 @@
 		 */
 		jumpToImage: function(imageNumber) 
 		{
-			if (self.settings.is_animating == false) {
-				self.box_skitter.find('.box_clone').stop();
-				self.clearTimer(true);
+			if (this.settings.is_animating == false) {
+				this.box_skitter.find('.box_clone').stop();
+				this.clearTimer(true);
 		
-				self.settings.image_i = Math.floor(imageNumber);
+				this.settings.image_i = Math.floor(imageNumber);
 				
-				self.box_skitter.find('.image a').attr({'href': self.settings.link_atual});
-				self.box_skitter.find('.image_main').attr({'src': self.settings.image_atual});
-				self.box_skitter.find('.box_clone').remove();
-				self.nextImage();
+				this.box_skitter.find('.image a').attr({'href': self.settings.link_atual});
+				this.box_skitter.find('.image_main').attr({'src': self.settings.image_atual});
+				this.box_skitter.find('.box_clone').remove();
+				this.nextImage();
 			}
 		},
 		
