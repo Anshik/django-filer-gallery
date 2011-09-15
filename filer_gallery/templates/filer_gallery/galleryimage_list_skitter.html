@@ -1,6 +1,7 @@
 {% load thumbnail sekizai_tags %}
 {% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter/css/skitter.styles.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
 {% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/skitter.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
+{% addtoblock "css" %}<link href="{{ STATIC_URL }}filer_gallery/filer_gallery.css" type="text/css" media="all" rel="stylesheet" />{% endaddtoblock %}
 
 {% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery-1.6.3.min.js"></script>{% endaddtoblock %}
 {% addtoblock "js" %}<script src="{{ STATIC_URL }}filer_gallery/skitter/js/jquery.easing.1.3.js"></script>{% endaddtoblock %}
@@ -20,7 +21,7 @@
 //]]>
 </script>
 {% endaddtoblock %}
-
+<div id="filer-gallery-wrapper">
 <div id="filer-gallery-gallery" class="box_skitter box_skitter_medium">
     <ul>
     {% for image in object_list %}
@@ -33,8 +34,13 @@
     {% endfor %}
     </ul> 
 </div>
+<div id="filer-gallery-thumbswrapper">
+
 {% for image in object_list %}
 
     <a href="#" onclick="skitter_jQuery('#filer-gallery-gallery').skitter('setimage', {{ forloop.counter0 }});return false"><img src="{% thumbnail image.image "50x50" %}" /></a>
 
 {% endfor %}
+</div>
+
+</div>
