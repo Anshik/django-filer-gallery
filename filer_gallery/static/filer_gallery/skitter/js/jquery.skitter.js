@@ -22,14 +22,18 @@
         if (options == "setimage") {
             return this.each(function() {
                 var skitternumber = parseInt($(this).data('skitter_number'))
+                console.log('n: ' + skitternumber + 'i: ' + $(this).attr('id'))
+
                 skitters[skitternumber].jumpToImage(arg)
     		});
         }
-		return this.each(function() {
-		    $(this).data('skitter_number', number_skitter)
-			skitters.push(new $sk(this, options, number_skitter));
-			++number_skitter;
-		});
+        else {
+    		return this.each(function() {
+    		    $(this).data('skitter_number', number_skitter)
+    			skitters.push(new $sk(this, options, number_skitter));
+    			++number_skitter;
+    		});
+    	}
 	};
 	
 	var defaults = {
