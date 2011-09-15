@@ -443,8 +443,8 @@
 		
 				this.settings.image_i = Math.floor(imageNumber);
 				
-				this.box_skitter.find('.image a').attr({'href': self.settings.link_atual});
-				this.box_skitter.find('.image_main').attr({'src': self.settings.image_atual});
+				this.box_skitter.find('.image a').attr({'href': this.settings.link_atual});
+				this.box_skitter.find('.image_main').attr({'src': this.settings.image_atual});
 				this.box_skitter.find('.box_clone').remove();
 				this.nextImage();
 			}
