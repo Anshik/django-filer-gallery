@@ -65,7 +65,7 @@ class GalleryAdmin(admin.ModelAdmin):
                 # Enforce the FILER_IS_PUBLIC_DEFAULT
                 file_obj.is_public = filer_settings.FILER_IS_PUBLIC_DEFAULT
                 file_obj.save()
-                GalleryImage.objects.create(gallery=gallery, title=gallery.title, image=file_obj)
+                GalleryImage.objects.create(gallery=gallery, category=gallery.category, title=gallery.title, image=file_obj)
                 json_response = {
                     'thumbnail': file_obj.icons['32'],
                     'alt_text': '',
@@ -83,8 +83,8 @@ class GalleryAdmin(admin.ModelAdmin):
             return HttpResponse(simplejson.dumps({'error': unicode(e)}), mimetype='application/json')
             
 class GalleryImageAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'title', 'image')
-    list_editable = ('title', 'image')
+    list_display = ('__unicode__', 'title', 'image', 'category')
+    list_editable = ('title', 'image', 'category')
     list_filter = ('gallery',)
     
 admin.site.register(Gallery, GalleryAdmin)
