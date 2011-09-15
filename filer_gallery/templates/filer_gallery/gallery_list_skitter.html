@@ -29,6 +29,8 @@
 {% endaddtoblock %}
 
 <div id="filer-gallery-wrapper">
+<div id="filer-gallery-imagewrapper">
+
 <div id="filer-gallery-{{ gallery.pk }}" class="box_skitter box_skitter_medium">
     <ul>
     {% for image in gallery.galleryimage_set.all %}
@@ -41,6 +43,8 @@
     {% endfor %}
     </ul> 
 </div>
+</div>
+
 {% for image in gallery.galleryimage_set.all %}
 <div id="filer-gallery-thumbswrapper">
 

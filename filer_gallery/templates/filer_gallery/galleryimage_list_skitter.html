@@ -22,6 +22,8 @@
 </script>
 {% endaddtoblock %}
 <div id="filer-gallery-wrapper">
+<div id="filer-gallery-imagewrapper">
+
 <div id="filer-gallery-gallery" class="box_skitter box_skitter_medium">
     <ul>
     {% for image in object_list %}
@@ -34,6 +36,8 @@
     {% endfor %}
     </ul> 
 </div>
+</div>
+
 <div id="filer-gallery-thumbswrapper">
 
 {% for image in object_list %}
