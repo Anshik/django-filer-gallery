@@ -17,13 +17,11 @@
 	
 	$.fn.skitter = function() {
         var options = arguments[0]
-        var arg = arguments[0]
+        var arg = arguments[1]
         var that = this
         if (options == "setimage") {
             return this.each(function() {
-                var skitternumber = parseInt($(this).data('skitter_number'))
-                console.log('n: ' + skitternumber + 'i: ' + $(this).attr('id'))
-
+                var skitternumber = $(this).data('skitter_number')
                 skitters[skitternumber].jumpToImage(arg)
     		});
         }
