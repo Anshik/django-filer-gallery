@@ -22,7 +22,7 @@
         if (options == "setimage") {
             return this.each(function() {
                 var skitternumber = parseInt($(this).data('skitter_number'))
-                skitters.jumpToImage(arg)
+                skitters[skitternumber].jumpToImage(arg)
     		});
         }
 		return this.each(function() {
