@@ -10,7 +10,7 @@
 {% addtoblock "js" %}
 <script type="text/javascript">
 //<![CDATA[
-var skitter = skitter | {}
+var skitter = skitter || {}
 skitter.jQuery = skitter.jQuery || jQuery.noConflict()
 (function ($) {
     var config = {{ SKITTER_CONFIG|safe }}
