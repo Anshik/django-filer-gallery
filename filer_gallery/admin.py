@@ -34,7 +34,7 @@ class GalleryAdmin(admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         form = super(GalleryAdmin, self).get_form(request, obj=None, **kwargs)
         if obj:
-            form.base_fields['upload'] = Field(widget=UploadWidget(obj=obj))
+            form.base_fields['upload'] = Field(widget=UploadWidget(obj=obj), required=False)
         return form
         
     def get_urls(self):
