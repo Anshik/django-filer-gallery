@@ -47,7 +47,7 @@
 <div class="filer-gallery-thumbswrapper">
 {% for image in gallery.galleryimage_set.all %}
 
-    <a href="#" onclick="skitter_jQuery('#filer-gallery-{{ gallery.pk }}').skitter('setimage', {{ forloop.counter0 }});return false"><img src="{% thumbnail image.image "56x56" %}" /></a>
+    <a href="#" onclick="skitter_jQuery('#filer-gallery-{{ gallery.pk }}').skitter('setimage', {{ forloop.counter0 }});return false"><img src="{% thumbnail image.image "60x60" %}" /></a>
 
 {% endfor %}
 </div>

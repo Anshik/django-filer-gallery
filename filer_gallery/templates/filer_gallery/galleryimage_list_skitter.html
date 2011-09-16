@@ -42,7 +42,7 @@
 
 {% for image in object_list %}
 
-    <a href="#" onclick="skitter_jQuery('#filer-gallery-gallery').skitter('setimage', {{ forloop.counter0 }});return false"><img src="{% thumbnail image.image "56x56" %}" /></a>
+    <a href="#" onclick="skitter_jQuery('#filer-gallery-gallery').skitter('setimage', {{ forloop.counter0 }});return false"><img src="{% thumbnail image.image "60x60" %}" /></a>
 
 {% endfor %}
 </div>

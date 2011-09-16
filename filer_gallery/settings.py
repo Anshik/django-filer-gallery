@@ -30,8 +30,7 @@ SKITTER_CONFIG = getattr(settings, 'SKITTER_CONFIG', {
     'animateNumberOver': {'backgroundColor':'#000', 'color':'#ccc'},
     'animateNumberActive': {'backgroundColor':'#000', 'color':'#ccc'},
     'width_label': None,
-    'show_randomly': False,
-    'max_number_height': 40
+    'show_randomly': False
 })
 
 FILER_GALLERY_DISPLAY_SIZE = getattr(settings, 'FILER_GALLERY_DISPLAY_SIZE', (400, 300) )
