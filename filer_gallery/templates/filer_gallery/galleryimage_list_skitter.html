@@ -25,7 +25,7 @@
            next.addClass('active')
            if ( (next.postion().top < gallery.scrollTop()) ||
                 (next.postion().top-next.outerHeight() > gallery.scrollTop()+gallery.innerHeight) ) {
-                   gallery.scrollTo(next), {duration:3000} )
+                   gallery.scrollTo(next, {duration:3000} )
             }
        });
     });
