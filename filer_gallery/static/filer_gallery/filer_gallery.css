@@ -1,8 +1,8 @@
 .filer-gallery-wrapper { height: 300px; margin-bottom: 20px; }
 .filer-gallery-imagewrapper { float: left; width: 400px; height: 300px; }
 .filer-gallery-thumbswrapper { float: right; margin-left: 1px; width: 180px; height: 300px; }
-.filer-gallery-thumbswrapper a img { border: 0; margin:0; padding:0; line-height: 1px; }
-.filer-gallery-thumbswrapper a { border: 0; margin:0; padding:0; line-height: 1px;  }
+.filer-gallery-thumbswrapper a img { border: 0; margin:0; padding:0; border-bottom: solid 2px green;  }
+.filer-gallery-thumbswrapper a { border: 0; margin:0; padding:0; border-bottom: solid 2px orange;  }
 
 .border_shadow {background:#000;padding:1px;margin:0 0 10px 0;
 	-moz-box-shadow:#000 0 0 5px;
