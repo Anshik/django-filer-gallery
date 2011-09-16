@@ -19,7 +19,8 @@
     $(document).ready(function () {
        $('#filer-gallery-{{ gallery.pk }}').skitter(config);
        $('#filer-gallery-{{ gallery.pk }}').bind("imageSwitched", function(event, skitter, imagenum ) {
-         console.log($(this).attr('id') + 'i:' +  imagenum) 
+           $('#filer-gallerythumbs-{{ gallery.pk }} img').removeClass('active')
+           $('#filer-gallerythumbs-{{ gallery.pk }} img:nth-child(' + imagenum + ')').addClass('active')
        });
 
     });
@@ -44,7 +45,7 @@
     </ul> 
 </div>
 </div>
-<div class="filer-gallery-thumbswrapper">
+<div id="filer-gallerythumbs-{{ gallery.pk }}" class="filer-gallery-thumbswrapper">
 {% spaceless %}
 {% for image in gallery.galleryimage_set.all %}
 <img src="{% thumbnail image.image "60x60" %}" onclick="skitter_jQuery('#filer-gallery-{{ gallery.pk }}').skitter('setimage', {{ forloop.counter0 }});return false"/>
