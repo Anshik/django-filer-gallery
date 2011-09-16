@@ -1,22 +1,9 @@
 .filer-gallery-wrapper { height: 300px; margin-bottom: 20px; }
 .filer-gallery-imagewrapper { float: left; width: 400px; height: 300px; }
 .filer-gallery-thumbswrapper { float: right; width: 192px; height: 300px; }
-.filer-gallery-thumbswrapper img { border: 0; margin:2px; padding:0;  }
+.filer-gallery-thumbswrapper img { display: block; border: 0; margin:2px; padding:0;  }
 .filer-gallery-thumbswrapper img.active { border: 1px solid white; margin:1px; padding:0;  }
 
-.filer-gallery-thumbswrapper img:after {
-    content: "."; 
-    display: block; 
-    height: 0; 
-    clear: both; 
-    visibility: hidden;
-}
-.filer-gallery-thumbswrapper img { display: inline-block; }
-
-/* Hides from IE-mac \*/
-* html .filer-gallery-thumbswrapper img { height: 1%; }
-.filer-gallery-thumbswrapper img { display: block; }
-/* End hide from IE-mac */om IE-mac */
 
 .border_shadow {background:#000;padding:1px;margin:0 0 10px 0;
 	-moz-box-shadow:#000 0 0 5px;
