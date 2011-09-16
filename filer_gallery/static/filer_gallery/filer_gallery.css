@@ -1,6 +1,6 @@
 .filer-gallery-wrapper { height: 300px; margin-bottom: 20px; }
 .filer-gallery-imagewrapper { float: left; width: 400px; height: 300px; }
-.filer-gallery-thumbswrapper { float: right; width: 192px; height: 300px; }
+.filer-gallery-thumbswrapper { float: right; width: 192px; height: 300px; overflow: hidden; }
 .filer-gallery-thumbswrapper img { float: left; display: block; border: 0; margin:2px; padding:0;  }
 .filer-gallery-thumbswrapper img.active { border: 1px solid white; margin:1px; padding:0;  }
 
