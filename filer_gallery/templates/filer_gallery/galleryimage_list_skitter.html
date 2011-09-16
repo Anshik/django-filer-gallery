@@ -18,10 +18,15 @@
        $('#filer-gallery-gallery').skitter(config);
        $('#filer-gallerythumbs-gallery img:first').addClass('active')
        $('#filer-gallery-gallery').bind("imageSwitched", function(event, skitter, imagenum ) {
-           $('#filer-gallerythumbs-gallery img').removeClass('active')
+           var gallery = $('#filer-gallery-gallery')
            var child = imagenum == 0 ? 'last' : 'nth-child(' + imagenum + ')'
-           $('#filer-gallerythumbs-gallery img:' + child).addClass('active')
-           $('#filer-gallerythumbs-gallery').scrollTo($('#filer-gallerythumbs-gallery img:' + child), {duration:3000} )
+           var next = $('#filer-gallerythumbs-gallery img:' + child)
+           $('#filer-gallerythumbs-gallery img').removeClass('active')
+           next.addClass('active')
+           if ( (next.postion().top < gallery.scrollTop()) ||
+                (next.postion().top-next.outerHeight() > gallery.scrollTop()+gallery.innerHeight) ) {
+                   gallery.scrollTo(next), {duration:3000} )
+            }
        });
     });
 })(skitter_jQuery)
