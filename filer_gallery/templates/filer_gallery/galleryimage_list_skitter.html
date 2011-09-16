@@ -16,6 +16,11 @@
     var config = {{ SKITTER_CONFIG|safe }}
     $(document).ready(function () {
         $('#filer-gallery-gallery').skitter(config);
+       $('#filer-gallery-gallery').bind("imageSwitched", function(event, skitter, imagenum ) {
+           $('#filer-gallerythumbs-gallery img').removeClass('active')
+           var child = imagenum == -1 ? 'last' : 'nth-child(' + imagenum + ')'
+           $('#filer-gallerythumbs-gallery img:nth-child(' + imagenum + ')').addClass('active')
+       });
     });
 })(skitter_jQuery)
 //]]>
@@ -38,7 +43,7 @@
 </div>
 </div>
 
-<div class="filer-gallery-thumbswrapper">
+<div id="filer-gallerythumbs-gallery" class="filer-gallery-thumbswrapper">
 {% spaceless %}
 {% for image in object_list %}
 <img src="{% thumbnail image.image "60x60" %}" onclick="skitter_jQuery('#filer-gallery-gallery').skitter('setimage', {{ forloop.counter0 }});return false"/>
