@@ -20,7 +20,7 @@
        $('#filer-gallery-gallery').bind("imageSwitched", function(event, skitter, imagenum ) {
            $('#filer-gallerythumbs-gallery img').removeClass('active')
            var child = imagenum == 0 ? 'last' : 'nth-child(' + imagenum + ')'
-           $('#filer-gallerythumbs-gallery img:' + child).scrollIntoView().addClass('active')
+           $('#filer-gallerythumbs-gallery img:' + child).addClass('active').scrollIntoView()
        });
     });
 })(skitter_jQuery)
