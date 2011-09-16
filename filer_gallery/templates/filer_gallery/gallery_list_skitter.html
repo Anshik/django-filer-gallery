@@ -21,7 +21,7 @@
        $('#filer-gallery-{{ gallery.pk }}').bind("imageSwitched", function(event, skitter, imagenum ) {
            $('#filer-gallerythumbs-{{ gallery.pk }} img').removeClass('active')
            var child = imagenum == -1 ? 'last' : 'nth-child(' + imagenum + ')'
-           $('#filer-gallerythumbs-{{ gallery.pk }} img:' + child + ').addClass('active')
+           $('#filer-gallerythumbs-{{ gallery.pk }} img:' + child).addClass('active')
        });
 
     });
