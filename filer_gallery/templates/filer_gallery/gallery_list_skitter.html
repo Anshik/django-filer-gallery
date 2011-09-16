@@ -29,7 +29,7 @@
 {% endaddtoblock %}
 
 <div class="filer-gallery-wrapper">
-<div class="filer-gallery-imagewrapper">
+<div class="filer-gallery-imagewrapper border_shadow">
 
 <div id="filer-gallery-{{ gallery.pk }}" class="box_skitter box_skitter_medium">
     <ul>
@@ -44,7 +44,7 @@
     </ul> 
 </div>
 </div>
-<div class="filer-gallery-thumbswrapper">
+<div class="filer-gallery-thumbswrapper border_shadow">
 {% for image in gallery.galleryimage_set.all %}
 
     <a href="#" onclick="skitter_jQuery('#filer-gallery-{{ gallery.pk }}').skitter('setimage', {{ forloop.counter0 }});return false"><img src="{% thumbnail image.image "50x50" %}" /></a>
