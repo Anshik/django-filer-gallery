@@ -24,7 +24,7 @@
            $('#filer-gallerythumbs-gallery img').removeClass('active')
            next.addClass('active')
            if ( (next.position().top < gallery.scrollTop()) ||
-                (next.position().top-next.outerHeight() > gallery.scrollTop()+gallery.innerHeight) ) {
+                (next.position().top-next.outerHeight() > gallery.scrollTop()+gallery.innerHeight()) ) {
                    gallery.scrollTo(next, {duration:3000} )
             }
        });
