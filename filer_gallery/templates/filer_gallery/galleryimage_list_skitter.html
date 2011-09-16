@@ -15,13 +15,12 @@
 (function ($) {
     var config = {{ SKITTER_CONFIG|safe }}
     $(document).ready(function () {
-        $('#filer-gallery-gallery').skitter(config);
+       $('#filer-gallery-gallery').skitter(config);
        $('#filer-gallerythumbs-gallery img:first').addClass('active')
        $('#filer-gallery-gallery').bind("imageSwitched", function(event, skitter, imagenum ) {
            $('#filer-gallerythumbs-gallery img').removeClass('active')
            var child = imagenum == 0 ? 'last' : 'nth-child(' + imagenum + ')'
-           console.log(imagenum)
-           $('#filer-gallerythumbs-gallery img:' + child).addClass('active')
+           $('#filer-gallerythumbs-gallery img:' + child).addClass('active').scrollintoview()
        });
     });
 })(skitter_jQuery)

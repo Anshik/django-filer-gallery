@@ -1,6 +1,8 @@
 {% extends "filer_gallery/filer_gallery_base.html" %}
 
 {% block filer_gallery_sidebar %}
+    {% render_galleryimage_category_links %}
+    {% render_galleryimage_month_links %}
 {% endblock filer_gallery_sidebar %}
 
 {% block filer_gallery_content %}
