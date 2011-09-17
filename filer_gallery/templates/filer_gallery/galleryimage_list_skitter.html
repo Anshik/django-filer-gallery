@@ -23,9 +23,9 @@
            var next = $('#filer-gallerythumbs-gallery img:' + child)
            $('#filer-gallerythumbs-gallery img').removeClass('active')
            next.addClass('active')
-           console.log('fc: '+ (next.position().top+next.outerHeight())+'sc: '+(gallery.scrollTop()+gallery.innerHeight()))
-           if ( (next.position().top < gallery.scrollTop()) ||
-                (next.position().top+next.outerHeight() > gallery.scrollTop()+gallery.innerHeight()) ) {
+           console.log('fc: '+ (next.position().top-gallery.offset().top)+'sc: '+(next.position().top-gallery.offset().top+next.outerHeight()))
+           if ( (next.position().top-gallery.offset().top < gallery.scrollTop()) ||
+                (next.position().top-gallery.offset().top+next.outerHeight() > gallery.scrollTop()+gallery.innerHeight()) ) {
                    gallery.scrollTo(next, {duration:3000} )
             }
        });
