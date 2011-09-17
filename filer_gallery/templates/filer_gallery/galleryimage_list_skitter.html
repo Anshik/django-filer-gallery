@@ -23,11 +23,12 @@
            $('#filer-gallerythumbs-gallery img').removeClass('active')
            next.addClass('active')
            
-           
+                console.log(gallery.scrollTop() + ' ' + next.position().top-gallery.offset().top)
                 $({posy: gallery.scrollTop()}).animate(
                     {posy: next.position().top-gallery.offset().top},
                     {duration: 2000,
                      step: function() {
+                        console.log(this.posy)
                         gallery.scrollTop(this.posy)
                         }
                     }
