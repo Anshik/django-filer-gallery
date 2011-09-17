@@ -23,15 +23,16 @@
            $('#filer-gallerythumbs-gallery img').removeClass('active')
            next.addClass('active')
            
-           if ( (next.position().top-gallery.offset().top < gallery.scrollTop()) ||
-                (next.position().top-gallery.offset().top+next.outerHeight() > gallery.scrollTop()+gallery.innerHeight()) ) {
-                   $({posy: gallery.scrollTop()}).animate(
-                        {posy: next.position().top-gallery.offset().top},
-                        {duration: 2000, step:function(){
-                            gallery.scrollTop(this.posy)
-                            }
-                        })
-            }
+           
+                $({posy: gallery.scrollTop()}).animate(
+                    {posy: next.position().top-gallery.offset().top},
+                    {duration: 2000,
+                     step: function() {
+                        gallery.scrollTop(this.posy)
+                        }
+                    }
+                )
+            
        });
     });
 })(skitter_jQuery)
