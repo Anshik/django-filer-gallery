@@ -17,7 +17,7 @@
         $('#filer-gallery-gallery').skitter(config);
         $('#filer-gallerythumbs-gallery img:first').addClass('active')
         $('#filer-gallerythumbs-gallery img').each(function() {
-            $(this).data({top: $(this).position().top-('#filer-gallerythumbs-gallery').offset().top})
+            $(this).data({top: $(this).position().top-$('#filer-gallerythumbs-gallery').offset().top})
         })
         $('#filer-gallery-gallery').bind("imageSwitched", function(event, skitter, imagenum ) {
             var child = imagenum == 0 ? 'last' : 'nth-child(' + imagenum + ')'
