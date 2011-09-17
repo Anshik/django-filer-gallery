@@ -23,7 +23,7 @@
            var next = $('#filer-gallerythumbs-gallery img:' + child)
            $('#filer-gallerythumbs-gallery img').removeClass('active')
            next.addClass('active')
-           console.log('fc: '+ (next.position().top-gallery.offset().top)+'sc: '+(next.position().top-gallery.offset().top+next.outerHeight()))
+           console.log('fc: '+ (next.position().top-gallery.offset().top+next.outerHeight())+'sc: '+(gallery.scrollTop()+gallery.innerHeight()))
            if ( (next.position().top-gallery.offset().top < gallery.scrollTop()) ||
                 (next.position().top-gallery.offset().top+next.outerHeight() > gallery.scrollTop()+gallery.innerHeight()) ) {
                    gallery.scrollTo(next, {duration:3000} )
